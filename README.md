@@ -1,2 +1,2 @@
 # Hyland-Capstone
-WE are SO COoked
+Weather + ChatGPT API website
