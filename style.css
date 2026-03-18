@@ -2,6 +2,10 @@ body {
     background: yellow;
     color: orange;
 }
+h1 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
 
 img {
     height: 1000px;
