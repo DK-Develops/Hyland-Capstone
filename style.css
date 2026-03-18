@@ -1,1 +1,12 @@
+body {
+    background: yellow;
+    color: orange;
+}
 
+img {
+    height: 1000px;
+}
+
+#main {
+    color: blue;
+}
