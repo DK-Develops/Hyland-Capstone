@@ -16,3 +16,10 @@ fetch(url)
   .catch(error => {
     console.error("Error fetching weather:", error);
   });
+
+  const temp = current.temp;
+      document.getElementById("temp").textContent = temp;
+  const windSpeed = current.windspeed;
+      document.getElementById("windSpeed").textContent = windSpeed;
+  const time = current.time;
+      document.getElementById("time").textContent = windSpeed;
