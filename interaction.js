@@ -2,6 +2,8 @@
  document.getElementById("mybutton").addEventListener("click", getLocation);
  export let lat = null;
  export let long = null;
+
+
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success, error);
@@ -10,13 +12,22 @@ function getLocation() {
    console.log("Browser does not support geolocation");
   }
 }
-function success(position) {
+async function success(position) {
    lat = position.coords.latitude; 
    long = position.coords.longitude;
-  console.log(lat, long);
- console.log(getData(lat,long));
+   
+  let weatherData = await getData(lat, long);
+      console.log("myAPIData", weatherData);
+      renderWeather(weatherData.current_weather);
 }
-
+  function renderWeather(data){
+    const temp = data.temperature;
+      document.getElementById("temp").textContent = temp;
+    const windSpeed = data.windspeed;
+      document.getElementById("windSpeed").textContent = windSpeed;
+    const time = data.time;
+      document.getElementById("time").textContent = windSpeed;
+  }
 function error() {
   alert("Sorry, no position available.");
 }
