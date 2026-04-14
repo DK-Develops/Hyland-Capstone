@@ -22,11 +22,9 @@ async function success(position) {
 }
   function renderWeather(data){
     const temp = data.temperature;
-      document.getElementById("temp").textContent = temp;
+      document.getElementById("temp").textContent = temp + "°C";
     const windSpeed = data.windspeed;
-      document.getElementById("windSpeed").textContent = windSpeed;
-    const time = data.time;
-      document.getElementById("time").textContent = windSpeed;
+      document.getElementById("windSpeed").textContent = windSpeed + " KM/H";
   }
 function error() {
   alert("Sorry, no position available.");
