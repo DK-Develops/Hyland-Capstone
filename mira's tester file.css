@@ -1,7 +1,3 @@
-body.sunny {
-  background: linear-gradient(135deg, #fceabb, #f8b500);
-}
-
-body.rainy {
-  background: linear-gradient(135deg, #4b79a1, #283e51);
-}
+body {
+  background: #6CBDE6;
+  
