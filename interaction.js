@@ -1,4 +1,4 @@
- import { getData } from "./api.js";
+ import { getData, getClothingRec } from "./api.js";
  document.getElementById("mybutton").addEventListener("click", getLocation);
  export let lat = null;
  export let long = null;
@@ -20,6 +20,7 @@ async function success(position) {
   let weatherData = await getData(lat, long);
       console.log("myAPIData", weatherData);
       renderWeather(weatherData.current_weather);
+      await getClothingRec(weatherData.current_weather.temperature, weatherData.current_weather.windspeed);
 }
   function renderWeather(data){
     temp = data.temperature;
