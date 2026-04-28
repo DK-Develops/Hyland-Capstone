@@ -8,7 +8,7 @@ export async function getClothingRec(temperature, windspeed) {
  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
    method: "POST",
    headers: {
-     "Authorization": 'Bearer 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',
+     "Authorization": 'Bearer API_KEY',
      "Content-Type": 'application/json'
    },
    body: JSON.stringify({
