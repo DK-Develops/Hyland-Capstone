@@ -25,4 +25,6 @@ export async function getClothingRec(temperature, windspeed) {
  const data = await response.json();
  console.log(data.choices[0].message.content);
  return data.choices[0].message.content;
+
+  
 }
