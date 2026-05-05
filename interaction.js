@@ -4,7 +4,9 @@
  export let long = null;
  export let temp = null;
  export let windSpeed = null;
- 
+ function celsiusToFahrenheit(c) {
+  return (c * 9 / 5) + 32;
+}
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -21,24 +23,53 @@ async function success(position) {
   let weatherData = await getData(lat, long);
       console.log("myAPIData", weatherData);
       renderWeather(weatherData.current_weather);
+      setWeatherBackground(weatherData.current_weather.weathercode);
       const message = await getClothingRec(weatherData.current_weather.temperature, weatherData.current_weather.windspeed);
       //document.getElementById("clothesRec").textContent = message;
-     
+     console.log("RAW MESSAGE FROM API:", message);
 document.getElementById("clothesRec").style.whiteSpace = "pre-line";
-document.getElementById("clothesRec").textContent = message;
+
+const formattedMessage = String(message).replace(/\\n/g, "\n\n");
+
+document.getElementById("clothesRec").textContent = formattedMessage;
 }
   function renderWeather(data){
-    temp = data.temperature;
-      document.getElementById("temp").textContent = temp + "°C";
-    windSpeed = data.windspeed;
-      document.getElementById("windSpeed").textContent = windSpeed + " KM/H";
-    
-    
+  temp = data.temperature;
+  windSpeed = data.windspeed;
+
+  const tempF = celsiusToFahrenheit(temp);
+
+ document.getElementById("temp").textContent =
+  "🌡️ " + temp + "°C / " + tempF.toFixed(1) + "°F";
+
+document.getElementById("windSpeed").textContent =
+  "💨 " + windSpeed + " KM/H";
       
   }
  
 
- 
+ function setWeatherBackground(weathercode) {
+  document.body.className = "";
+
+  if (weathercode === 0) {
+    document.body.classList.add("sunny");
+  } 
+  else if (weathercode >= 1 && weathercode <= 3) {
+    document.body.classList.add("cloudy");
+  } 
+  else if (weathercode >= 51 && weathercode <= 67) {
+    document.body.classList.add("rainy");
+  } 
+  else if (weathercode >= 71 && weathercode <= 77) {
+    document.body.classList.add("snowy");
+  } 
+  else if (weathercode >= 80 && weathercode <= 99) {
+    document.body.classList.add("rainy");
+  } 
+  else {
+    document.body.classList.add("cloudy");
+  }
+}
 
 
 

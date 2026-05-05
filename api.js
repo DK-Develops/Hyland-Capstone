@@ -14,10 +14,27 @@ export async function getClothingRec(temperature, windspeed) {
    body: JSON.stringify({
      model: "nvidia/nemotron-3-super-120b-a12b:free",
      messages: [
-       {
-         role: "user", content: `What should I wear under these circumstances: temperature is ${temperature}°c and wind speed is ${windspeed} km/h? You have to respond only with clothing for the head, torso, legs, and feet. `
-         }
-     ],
+  {
+    role: "user",
+    content: `What should I wear under these circumstances: temperature is ${temperature}°c and wind speed is ${windspeed} km/h?
+
+You must respond ONLY with clothing for:
+- Head
+- Torso
+- Legs
+- Feet
+
+IMPORTANT:
+- Include emojis for each section:
+  🧢 Head
+  🧥 Torso
+  👖 Legs
+  👟 Feet
+- Use line breaks between each section
+`
+  }
+],
+     
      stream: false
    })
  });
