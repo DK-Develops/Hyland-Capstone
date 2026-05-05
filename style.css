@@ -2,6 +2,38 @@
   box-sizing: border-box;
 }
 
+p {
+
+  margin: 18px 0;
+
+
+
+}
+.container {
+  display: flex;
+  flex-direction: column; /* This forces items onto new lines */
+  gap: 15px; /* This is the modern way to skip lines between items */
+  align-items: center;
+}
+button {
+
+  margin-top: 25px;
+
+}
+h1
+{
+margin-bottom: 20px;
+
+}
+
+h2
+{
+
+  margin-bottom: 30px;
+
+}
+
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -28,6 +60,13 @@ background-color: rgb(42, 153, 190);
   margin-top: 0;
   letter-spacing: 0.35px;
 }
+.weather-app p {
+
+margin:12px 0;
+
+}
+
+
 
 .weather-form {
   margin: 20px 0;
