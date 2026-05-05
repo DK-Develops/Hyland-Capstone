@@ -22,9 +22,10 @@ async function success(position) {
       console.log("myAPIData", weatherData);
       renderWeather(weatherData.current_weather);
       const message = await getClothingRec(weatherData.current_weather.temperature, weatherData.current_weather.windspeed);
-      document.getElementById("clothesRec").textContent = message;
-      
-
+      //document.getElementById("clothesRec").textContent = message;
+     
+document.getElementById("clothesRec").style.whiteSpace = "pre-line";
+document.getElementById("clothesRec").textContent = message;
 }
   function renderWeather(data){
     temp = data.temperature;
