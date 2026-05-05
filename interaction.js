@@ -26,7 +26,7 @@ async function success(position) {
       setWeatherBackground(weatherData.current_weather.weathercode);
       const message = await getClothingRec(weatherData.current_weather.temperature, weatherData.current_weather.windspeed);
       //document.getElementById("clothesRec").textContent = message;
-     console.log("RAW MESSAGE FROM API:", message);
+     
 document.getElementById("clothesRec").style.whiteSpace = "pre-line";
 
 const formattedMessage = String(message).replace(/\\n/g, "\n\n");
@@ -40,10 +40,10 @@ document.getElementById("clothesRec").textContent = formattedMessage;
   const tempF = celsiusToFahrenheit(temp);
 
  document.getElementById("temp").textContent =
-  "🌡️ " + temp + "°C / " + tempF.toFixed(1) + "°F";
+  temp + "°C / " + tempF.toFixed(1) + "°F";
 
 document.getElementById("windSpeed").textContent =
-  "💨 " + windSpeed + " KM/H";
+  windSpeed + " KM/H";
       
   }
  
