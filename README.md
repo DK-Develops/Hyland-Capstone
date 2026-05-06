@@ -1,2 +1,4 @@
 # Hyland-Capstone
-Weather API + AI API website to Get weather and get outfits for the weather conditions
+Weather API + AI API website 
+- Gets weather and  outfits for the weather conditions 
+- Background changes based on temp
